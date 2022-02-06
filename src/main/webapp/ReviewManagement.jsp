@@ -13,6 +13,13 @@ crossorigin="anonymous">
 </head>
 
 <body>
+
+<a href="<%=request.getContextPath()%>/UserServlet">User</a>
+<br>
+<a href="<%=request.getContextPath()%>/BookingServlet/dashboard">Bookings</a>
+<br>
+<a href="<%=request.getContextPath()%>/RestaurantServlet/dashboard">Restaurant</a>
+
 <div class="row">
 <div class="container">
 <h3 class="text-center">List of Comments</h3>
