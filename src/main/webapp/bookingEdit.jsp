@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
 <body>
 <nav class="navbar navbar-expand-md navbar-light">
 <div>
-<a class="navbar-brand"> Booking Management Application </a>
+<a class="navbar-brand"> Booking Management</a>
 </div>
 <ul class="navbar-nav">
 <li><a href="<%=request.getContextPath()%>/BookingServlet/dashboard"
