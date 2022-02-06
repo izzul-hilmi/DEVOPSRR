@@ -14,10 +14,14 @@
 <h3 class="text-center">Create New Booking</h3>
 <form action="NewBookingServlet" method="post">
 	Username: <input type="text" name="username">
+	<br>
 	Restaurant: <input type="text" name="restaurant">
+	<br>
 	Date: <input type="date" name="date" placeholder="DD/MM/YYYY format">
+	<br>
 	Time: <input type="time" name="time"placeholder="Enter in 12HR format">
-	<input type="submit" value="Call Servlet"/>
+	<br>
+	<input type="submit" class="btn btn-success" value="Create booking"/>
 </form>
 </div>
 </div>
