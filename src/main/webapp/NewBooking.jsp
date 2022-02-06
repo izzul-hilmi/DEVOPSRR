@@ -12,14 +12,22 @@
 <div class="row">
 <div class="container">
 <h3 class="text-center">Create New Booking</h3>
+<li><a href="<%=request.getContextPath()%>/BookingServlet/dashboard"
+class="nav-link">Back to all bookings</a></li>
 <form action="NewBookingServlet" method="post">
+	<br>
+	<br>
 	Username: <input type="text" name="username">
+	<br>
 	<br>
 	Restaurant: <input type="text" name="restaurant">
 	<br>
+	<br>
 	Date: <input type="date" name="date" placeholder="DD/MM/YYYY format">
 	<br>
+	<br>
 	Time: <input type="time" name="time"placeholder="Enter in 12HR format">
+	<br>
 	<br>
 	<input type="submit" class="btn btn-success" value="Create booking"/>
 </form>
