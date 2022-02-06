@@ -15,11 +15,11 @@ crossorigin="anonymous">
 <body>
 <div class="row">
 <div class="container">
-<h3 class="text-center">List of Users</h3>
+<h3 class="text-center">List of Comments</h3>
 
 <div class="container text-left">
 <!-- Add new user button redirects to the register.jsp page -->
-<a href="<%=request.getContextPath()%>/review.jsp" class="btn-success">Add New User</a>
+<a href="<%=request.getContextPath()%>/review.jsp" class="btn btn-success">Add New Review</a>
 </div>
 
 <!-- Create a table to list out all current users information -->
