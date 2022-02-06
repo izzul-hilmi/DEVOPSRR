@@ -162,7 +162,7 @@ public class BookingServlet extends HttpServlet {
 	int i = statement.executeUpdate();
 	}
 	//Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
-	response.sendRedirect("http://localhost:8090/HelloWorldJavaEE2/BookingServlet/dashboard");
+	response.sendRedirect("http://localhost:8090/DEVOPSRR/BookingServlet/dashboard");
 	}
 	//method to delete user
 	private void deleteBooking(HttpServletRequest request, HttpServletResponse response)
@@ -176,7 +176,7 @@ public class BookingServlet extends HttpServlet {
 		     int i = statement.executeUpdate();
 		     }
 		     //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
-		     response.sendRedirect("http://localhost:8090/HelloWorldJavaEE2/BookingServlet/dashboard");
+		     response.sendRedirect("http://localhost:8090/DEVOPSRR/BookingServlet/dashboard");
 		    }
 		
 
