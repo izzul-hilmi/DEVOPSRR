@@ -15,8 +15,15 @@ crossorigin="anonymous">
 <body>
 
 
-<a href="/huanRestaurant/login.jsp">Login</a>
-<a href="/huanRestaurant/Register.jsp">Register</a>
+<a href="<%=request.getContextPath()%>/DEVOPSRR/login.jsp">Login</a>
+<a href="<%=request.getContextPath()%>/DEVOPSRR/Register.jsp">Register</a>
+<br>
+<br>
+<a href="<%=request.getContextPath()%>/BookingServlet/dashboard">Booking</a>
+<br>
+<a href="<%=request.getContextPath()%>/CommentServlet/dashboard">Reviews</a>
+<br>
+<a href="<%=request.getContextPath()%>/RestaurantServlet/dashboard">Restaurant</a>
 
 <div class="row">
 <div class="container">

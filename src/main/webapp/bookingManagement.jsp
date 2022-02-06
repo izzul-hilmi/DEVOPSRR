@@ -9,6 +9,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
+<a href="<%=request.getContextPath()%>/UserServlet">User</a>
+<br>
+<a href="<%=request.getContextPath()%>/CommentServlet/dashboard">Reviews</a>
+<br>
+<a href="<%=request.getContextPath()%>/RestaurantServlet/dashboard">Restaurant</a>
+
+
 <div class="row">
 <div class="container">
 <h3 class="text-center">List of Bookings</h3>
