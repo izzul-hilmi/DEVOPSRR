@@ -12,6 +12,18 @@
  		<servlet-class>CommentServlet</servlet-class>
  	</servlet>
 
+	<servlet>
+		<servlet-name>BookingServlet</servlet-name>
+		<servlet-class>BookingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BookingServlet</servlet-name>
+		<url-pattern>/BookingServlet/dashboard</url-pattern>
+		<url-pattern>/BookingServlet/edit</url-pattern>
+		<url-pattern>/BookingServlet/update</url-pattern>
+		<url-pattern>/BookingServlet/delete</url-pattern>
+	</servlet-mapping>
+
  	<servlet-mapping>
  	<servlet-name>CommentServlet</servlet-name>
 		<url-pattern>/CommentServlet/dashboard</url-pattern>
