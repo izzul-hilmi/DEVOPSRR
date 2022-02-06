@@ -16,6 +16,20 @@
 		<servlet-name>BookingServlet</servlet-name>
 		<servlet-class>BookingServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+ 		<servlet-name>RestaurantServlet</servlet-name>
+ 		<servlet-class>RestaurantServlet</servlet-class>
+ 	</servlet>
+
+ 	<servlet-mapping>
+ 		<servlet-name>RestaurantServlet</servlet-name>
+		<url-pattern>/RestaurantServlet/dashboard</url-pattern>
+		<url-pattern>/RestaurantServlet/edit</url-pattern>
+ 		<url-pattern>/RestaurantServlet/update</url-pattern>
+ 		<url-pattern>/RestaurantServlet/delete</url-pattern>
+ 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>BookingServlet</servlet-name>
 		<url-pattern>/BookingServlet/dashboard</url-pattern>
