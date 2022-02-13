@@ -20,11 +20,11 @@ import javax.servlet.RequestDispatcher;
 @WebServlet("/CommentServlet")
 public class CommentServlet extends HttpServlet {
 	 //Step 1: Prepare list of variables used for database connections
-	 private String jdbcURL = "jdbc:mysql://localhost:3306/reviewdetails";
+	 private String jdbcURL = "jdbc:mysql://localhost:3306/restaurant";
 	 private String jdbcUsername = "root";
 	 private String jdbcPassword = "password";
 	 //Step 2: Prepare list of SQL prepared statements to perform CRUD to our database
-	 private static final String INSERT_USERS_SQL = "INSERT INTO UserDetails" + " (name, REVIEW) VALUES " + " (?, ?);";
+	 private static final String INSERT_USERS_SQL = "INSERT INTO ReviewDetails" + " (name, REVIEW) VALUES " + " (?, ?);";
 	 private static final String SELECT_REVIEW_BY_ID = "select name,review from ReviewDetails where name =?";
 	 private static final String SELECT_ALL_REVIEWS = "select * from ReviewDetails ";
 	 private static final String DELETE_REVIEWS_SQL = "delete from ReviewDetails where name = ?;";
