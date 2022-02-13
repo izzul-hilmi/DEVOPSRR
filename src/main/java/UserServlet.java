@@ -24,7 +24,7 @@ public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//Step 1: Prepare list of variables used for database connections
-	private String jdbcURL = "jdbc:mysql://localhost:3306/userinfo";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/restaurant";
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "password";
 	
@@ -191,7 +191,7 @@ public class UserServlet extends HttpServlet {
 			int i = statement.executeUpdate();
 		} 
 		//Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
-		response.sendRedirect("http://localhost:8080/huanRestaurant/UserServlet");
+		response.sendRedirect("http://localhost:8090/DEVOPSRR/UserServlet");
 	}
 	
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response)
@@ -205,7 +205,7 @@ public class UserServlet extends HttpServlet {
 			int i = statement.executeUpdate();
 		} 
 		//Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
-		response.sendRedirect("http://localhost:8080/huanRestaurant/UserServlet");
+		response.sendRedirect("http://localhost:8090/DEVOPSRR/UserServlet");
 	}
 	
 	
@@ -267,7 +267,7 @@ public class UserServlet extends HttpServlet {
 		// dashboard
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userinfo", "root", "password");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant", "root", "password");
 
 			// Step 4: implement the sql query using prepared statement
 			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
