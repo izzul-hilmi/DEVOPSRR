@@ -15,8 +15,7 @@ crossorigin="anonymous">
 <body>
 
 
-<a href="/huanRestaurant/login.jsp">Login</a>
-<a href="/huanRestaurant/Register.jsp">Register</a>
+<a href="<%=request.getContextPath()%>/login.jsp">Login</a>
 
 <div class="row">
 <div class="container">
@@ -24,7 +23,7 @@ crossorigin="anonymous">
 <hr>
 <div class="container text-left">
 <!-- Add new user button redirects to the register.jsp page -->
-<a href="<%=request.getContextPath()%>/Register.jsp" class="btn btn-success">Add New User</a>
+<a href="<%=request.getContextPath()%>/Register.jsp" class="btn btn-success">Register</a>
 </div>
 <br>
 <!-- Create a table to list out all current users information -->
