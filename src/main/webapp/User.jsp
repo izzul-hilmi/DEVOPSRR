@@ -16,6 +16,13 @@ crossorigin="anonymous">
 
 
 <a href="<%=request.getContextPath()%>/login.jsp">Login</a>
+<br>
+<br>
+<a href="<%=request.getContextPath()%>/BookingServlet/dashboard">Booking</a>
+<br>
+<a href="<%=request.getContextPath()%>/CommentServlet/dashboard">Reviews</a>
+<br>
+<a href="<%=request.getContextPath()%>/RestaurantServlet/dashboard">Restaurant</a>
 
 <div class="row">
 <div class="container">
@@ -67,6 +74,5 @@ crossorigin="anonymous">
 
 <script>
 
-console.log(name);	
 
 </script>
