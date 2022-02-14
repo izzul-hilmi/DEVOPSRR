@@ -15,8 +15,7 @@ crossorigin="anonymous">
 <body>
 
 
-<a href="<%=request.getContextPath()%>/DEVOPSRR/login.jsp">Login</a>
-<a href="<%=request.getContextPath()%>/DEVOPSRR/Register.jsp">Register</a>
+<a href="<%=request.getContextPath()%>/login.jsp">Login</a>
 <br>
 <br>
 <a href="<%=request.getContextPath()%>/BookingServlet/dashboard">Booking</a>
@@ -31,7 +30,7 @@ crossorigin="anonymous">
 <hr>
 <div class="container text-left">
 <!-- Add new user button redirects to the register.jsp page -->
-<a href="<%=request.getContextPath()%>/Register.jsp" class="btn btn-success">Add New User</a>
+<a href="<%=request.getContextPath()%>/Register.jsp" class="btn btn-success">Register</a>
 </div>
 <br>
 <!-- Create a table to list out all current users information -->
@@ -75,6 +74,5 @@ crossorigin="anonymous">
 
 <script>
 
-console.log(name);	
 
 </script>
