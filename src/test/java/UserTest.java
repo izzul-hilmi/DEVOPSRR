@@ -26,6 +26,8 @@ public class UserTest {
 	  
 	  driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
 	  
+//	  driver.findElement(By.xpath("//linkText")).click();
+	  
 //	  driver.navigate().refresh();  
   }
   @BeforeTest
