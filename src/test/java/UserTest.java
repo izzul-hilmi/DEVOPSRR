@@ -25,6 +25,7 @@ public class UserTest {
 	  driver.findElement(By.id("submit_")).click();
 	  
 	  driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
+	  driver.quit();
 	  
 //	  driver.findElement(By.xpath("//linkText")).click();
 	  
