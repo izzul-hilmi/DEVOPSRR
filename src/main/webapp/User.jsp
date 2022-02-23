@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>User</title>
 </head>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
