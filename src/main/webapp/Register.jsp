@@ -14,7 +14,7 @@
 		<br>
 		Email: <input type="text" name="yourEmail" size="20">
 		<br>
-		<input type="submit" value="Register" />
+		<input id="submit_" type="submit" value="Register" />
 	</form>
 
 </body>
