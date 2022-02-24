@@ -19,7 +19,7 @@ crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-md navbar-light">
 <div>
-<a class="navbar-brand"> User Management Application </a>
+<a class="navbar-brand"> Comment management </a>
 </div>
 <ul class="navbar-nav">
 <li><a href="<%=request.getContextPath()%>/CommentServlet/dashboard"
@@ -58,7 +58,7 @@ value='${review.name}' />" class="form-control" name="name" required="required">
 value='${review.review}' />" class="form-control" name="review">
 </fieldset>
 
-<button id="editC" type="submit" class="btn btn-success">Save</button>
+<button id="editC" type="submit" class="btn btn-success">Submit</button>
 </form>
 </div>
 </div>
