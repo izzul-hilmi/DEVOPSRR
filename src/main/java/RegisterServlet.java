@@ -62,8 +62,7 @@ public class RegisterServlet extends HttpServlet {
 		 int i = ps.executeUpdate();
 			 if (i > 0){
 		PrintWriter writer = response.getWriter();
-		writer.println("You have successfully registered a restaurant!");
-		writer.close();
+		response.sendRedirect("http://localhost:8090/DEVOPSRR/RestaurantServlet/dashboard");
 		}
 		}
 		//Step 8: catch and print out any exception

@@ -162,7 +162,7 @@ public class RestaurantServlet extends HttpServlet {
 	 int i = statement.executeUpdate();
 	 }
 	 //Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
-	 response.sendRedirect("http://localhost:8090/RestaurantProj/RestaurantServlet/dashboard");
+	 response.sendRedirect("http://localhost:8090/DEVOPSRR/RestaurantServlet/dashboard");
 	}
 	//method to delete user
 	private void deleteRestaurant(HttpServletRequest request, HttpServletResponse response)
@@ -176,7 +176,7 @@ public class RestaurantServlet extends HttpServlet {
 	 int i = statement.executeUpdate();
 	 }
 	 //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
-	 response.sendRedirect("http://localhost:8090/RestaurantProj/RestaurantServlet/dashboard");
+	 response.sendRedirect("http://localhost:8090/DEVOPSRR/RestaurantServlet/dashboard");
 	}
 
 }
