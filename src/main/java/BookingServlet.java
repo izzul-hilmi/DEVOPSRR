@@ -103,10 +103,10 @@ public class BookingServlet extends HttpServlet {
 	 while (rs.next()) {
 	 String username = rs.getString("username");
 	 String restaurant = rs.getString("restaurant");
-	 String time = rs.getString("time");
 	 String date = rs.getString("date");
+	 String time = rs.getString("time");
 	
-	 booking.add(new Booking(username, restaurant, time, date));
+	 booking.add(new Booking(username, restaurant, date, time));
 	 }
 	 } catch (SQLException e) {
 	 System.out.println(e.getMessage());
@@ -132,9 +132,9 @@ public class BookingServlet extends HttpServlet {
 	while (rs.next()) {
 	String Username = rs.getString("username");
 	String restaurant = rs.getString("restaurant");
-	String time = rs.getString("time");
 	String date = rs.getString("date");
-	existingBooking = new Booking(Username, restaurant, time, date);
+	String time = rs.getString("time");
+	existingBooking = new Booking(Username, restaurant, date, time);
 	}
 	} catch (SQLException e) {
 	System.out.println(e.getMessage());
@@ -150,14 +150,14 @@ public class BookingServlet extends HttpServlet {
 	String oriName = request.getParameter("oriName");
 	String username = request.getParameter("username");
 	String restaurant = request.getParameter("restaurant");
-	String time = request.getParameter("time");
 	String date = request.getParameter("date");
+	String time = request.getParameter("time");
 	//Step 2: Attempt connection with database and execute update user SQL query
 	try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_BOOKING_SQL);) {
 	statement.setString(1, username);
 	statement.setString(2, restaurant);
-	statement.setString(3, time);
-	statement.setString(4, date);
+	statement.setString(3, date);
+	statement.setString(4, time);
 	statement.setString(5, oriName);
 	int i = statement.executeUpdate();
 	}

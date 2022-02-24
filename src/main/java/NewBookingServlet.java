@@ -43,8 +43,8 @@ public class NewBookingServlet extends HttpServlet {
 		PrintWriter out = response.getWriter(); //Step 2: retrieve the four parameters from the request from the web form
 		String u = request.getParameter("username");
 		String r = request.getParameter("restaurant");
-		String t = request.getParameter("time");
 		String d = request.getParameter("date");
+		String t = request.getParameter("time");
 		//Step 3: attempt connection to database using JDBC, you can change the username and password accordingly using the phpMyAdmin > User Account dashboard
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
