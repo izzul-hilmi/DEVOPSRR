@@ -43,8 +43,8 @@ public class NewBookingServlet extends HttpServlet {
 		PrintWriter out = response.getWriter(); //Step 2: retrieve the four parameters from the request from the web form
 		String u = request.getParameter("username");
 		String r = request.getParameter("restaurant");
-		String d = request.getParameter("date");
 		String t = request.getParameter("time");
+		String d = request.getParameter("date");
 		//Step 3: attempt connection to database using JDBC, you can change the username and password accordingly using the phpMyAdmin > User Account dashboard
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -54,9 +54,9 @@ public class NewBookingServlet extends HttpServlet {
 		//Step 5: parse in the data retrieved from the web form request into the prepared statement accordingly
 		ps.setString(1, u);
 		ps.setString(2, r);
-		ps.setString(3, d);
-		ps.setString(4, t); //Step 6: perform the query on the database using the prepared statement
-		int i = ps.executeUpdate(); //Step 7: check if the query had been successfully execute, return “You are successfully registered” via the response,
+		ps.setString(3, t);
+		ps.setString(4, d); //Step 6: perform the query on the database using the prepared statement
+		int i = ps.executeUpdate(); //Step 7: check if the query had been successfully execute, return ï¿½You are successfully registeredï¿½ via the response,
 		if (i > 0){
 		PrintWriter writer = response.getWriter();
 		response.sendRedirect("http://localhost:8090/DEVOPSRR/BookingServlet/dashboard");
