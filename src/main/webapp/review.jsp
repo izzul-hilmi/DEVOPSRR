@@ -12,7 +12,7 @@
 		<br></br>
 		Comment: <input type="text" name="review">
 
-		<input type="submit" value= "Comment"/>
+		<input id="comment" type="submit" value= "Comment"/>
 	</form>
 
 </body>

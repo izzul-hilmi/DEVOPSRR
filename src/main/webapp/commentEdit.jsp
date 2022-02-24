@@ -58,7 +58,7 @@ value='${review.name}' />" class="form-control" name="name" required="required">
 value='${review.review}' />" class="form-control" name="review">
 </fieldset>
 
-<button type="submit" class="btn btn-success">Save</button>
+<button id="editC" type="submit" class="btn btn-success">Save</button>
 </form>
 </div>
 </div>
