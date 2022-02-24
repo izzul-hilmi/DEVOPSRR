@@ -25,10 +25,10 @@
 	Restaurant: <input type="text" name="restaurant">
 	<br>
 	<br>
-	Time: <input type="text" name="time" placeholder="Enter in 12HR format">
-	<br>
-	<br>
 	Date: <input type="text" name="date"placeholder="DD/MM/YYYY format">
+	<br>
+	<br>
+	Time: <input type="text" name="time" placeholder="Enter in 12HR format">
 	<br>
 	<br>
 	<input type="submit" class="btn btn-success" id="createBooking" value="Create booking"/>

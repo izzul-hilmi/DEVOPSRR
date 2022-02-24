@@ -49,10 +49,10 @@ Add New User
 <label>Restaurant</label> <input type="text" value="<c:out value='${booking.restaurant}' />" class="form-control" name="restaurant" required="required">
 </fieldset>
 <fieldset class="form-group">
-<label>Time</label> <input type="text" value="<c:out value='${booking.date}' />" class="form-control" name="time"  required="required">
+<label>Date</label> <input type="text" value="<c:out value='${booking.date}' />" class="form-control" name="date"  required="required" placeholder="Enter in DD/MM/YYYY">
 </fieldset>
 <fieldset class="form-group">
-<label>Date</label> <input type="text" value="<c:out value='${booking.time}' />" class="form-control" name="date">
+<label>Time</label> <input type="text" value="<c:out value='${booking.time}' />" class="form-control" name="time" placeholder="Enter in 12HR formart">
 </fieldset>
 <button type="submit" class="btn btn-success" id="save">Save</button>
 </form>
