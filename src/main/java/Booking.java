@@ -27,6 +27,14 @@ public class Booking {
 		this.restaurant = restaurant;
 	}
 	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 	public String getTime() {
 		return time;
 	}
@@ -35,19 +43,11 @@ public class Booking {
 		this.time = time;
 	}
 
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 	
 	protected String restaurant;
 	
-	protected String time;
-	
 	protected String date;
+	
+	protected String time;
 
 }
