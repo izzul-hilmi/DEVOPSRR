@@ -111,8 +111,8 @@ public class UserServlet extends HttpServlet {
 
 	private void login(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		String name = request.getParameter("yourName");
-		String password = request.getParameter("yourPassword");
+		String name = request.getParameter("name");
+		String password = request.getParameter("password");
 //		Boolean loggedIn = false;
 		try (
 				Connection connection = getConnection();
@@ -258,9 +258,9 @@ public class UserServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 
-		String formName = request.getParameter("yourName");
-		String formPassword = request.getParameter("yourPassword");
-		String formEmail = request.getParameter("yourEmail");
+		String formName = request.getParameter("name");
+		String formPassword = request.getParameter("password");
+		String formEmail = request.getParameter("email");
 
 		// Step 3: attempt connection to database using JDBC, you can change the
 		// username and password accordingly using the phpMyAdmin > User Account
