@@ -20,7 +20,7 @@ import javax.servlet.RequestDispatcher;
 @WebServlet("/CommentServlet")
 public class CommentServlet extends HttpServlet {
 	 //Step 1: Prepare list of variables used for database connections
-	 private String jdbcURL = "jdbc:mysql://localhost:3306/reviewdetails";
+	 private String jdbcURL = "jdbc:mysql://localhost:3306/restaurant";
 	 private String jdbcUsername = "root";
 	 private String jdbcPassword = "password";
 	 //Step 2: Prepare list of SQL prepared statements to perform CRUD to our database
