@@ -6,6 +6,7 @@
       <class name=".BookingTest"/>
       <class name=".ReviewTest"/>
       <class name=".UserTest"/>
+      <class name=".RetaurantTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
