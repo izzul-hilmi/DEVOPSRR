@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con = DriverManager.getConnection(
-		 "jdbc:mysql://localhost:3306/restaurantdetails", "root", "123456");
+		 "jdbc:mysql://localhost:3306/restaurant", "root", "password");
 		//Step 4: implement the sql query using prepared statement (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
 		 PreparedStatement ps = con.prepareStatement("insert into RESTAURANTDETAILS values(?,?,?)");
 		//Step 5: parse in the data retrieved from the web form request into the prepared statement accordingly

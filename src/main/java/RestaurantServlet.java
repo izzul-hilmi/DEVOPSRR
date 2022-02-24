@@ -23,9 +23,9 @@ import javax.servlet.http.HttpServletResponse;
 public class RestaurantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 //Step 1: Prepare list of variables used for database connections
-	 private String jdbcURL = "jdbc:mysql://localhost:3306/restaurantdetails";
+	 private String jdbcURL = "jdbc:mysql://localhost:3306/restaurant";
 	 private String jdbcUsername = "root";
-	 private String jdbcPassword = "123456";
+	 private String jdbcPassword = "password";
 	 //Step 2: Prepare list of SQL prepared statements to perform CRUD to our database
 	 private static final String INSERT_RESTAURANTS_SQL = "INSERT INTO RestaurantDetails" + " (name, hotline, address) VALUES " +" (?, ?, ?);";
 	 private static final String SELECT_RESTAURANT_BY_ID = "select name,hotline,address, from RestaurantDetails where name =?";
