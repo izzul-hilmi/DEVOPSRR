@@ -20,29 +20,31 @@ public class UserTest {
       // Navigate to this button to create the booking
       driver.findElement(By.linkText("Register")).click();
 
-      driver.findElement(By.name("name")).sendKeys("John123");
-      driver.findElement(By.name("password")).sendKeys("123");
-      driver.findElement(By.name("email")).sendKeys("john123@gmail.com");
+      driver.findElement(By.name("yourName")).sendKeys("John1234");
+      driver.findElement(By.name("yourPassword")).sendKeys("123");
+      driver.findElement(By.name("yourEmail")).sendKeys("john123@gmail.com");
       
       driver.findElement(By.id("submit_")).click();
       
 
-//      driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
-//      //Edit the test auto booking 
-//      driver.findElement(By.xpath("//a[@href='UserServlet/edit?name=John123']")).click();
-//      
-//      driver.findElement(By.name("name")).clear();
-//      
-//      driver.findElement(By.name("name")).sendKeys("John123Edit");
-//      
-//      driver.findElement(By.name("email")).clear();
-//      
-//      driver.findElement(By.name("email")).sendKeys("john123edit@gmail.com");
-//      
-//      driver.findElement(By.id("submit_")).click();
-//      
-//      //Delete the test auto booking
-//      driver.findElement(By.xpath("//a[@href='UserServlet/delete?name=John123Edit']")).click();
+      driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
+      //Edit the test auto booking 
+      driver.findElement(By.xpath("//a[@href='UserServlet/edit?name=John1234']")).click();
+      
+      driver.findElement(By.name("name")).clear();
+      
+      driver.findElement(By.name("name")).sendKeys("John1234Edit");
+      
+      driver.findElement(By.name("email")).clear();
+      
+      driver.findElement(By.name("email")).sendKeys("john123edit@gmail.com");
+      
+      driver.findElement(By.id("edit")).click();
+      
+      driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
+      
+      //Delete the test auto booking
+      driver.findElement(By.xpath("//a[@href='UserServlet/delete?name=John1234Edit']")).click();
       
 
   
