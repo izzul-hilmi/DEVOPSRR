@@ -43,7 +43,8 @@
 							<input type="hidden" name="oriName" value="<c:out value='${user.name}' />" />
 						</c:if>
 						<fieldset class="form-group">
-							<label>User Name</label> <input type="text" value="<c:out value='${user.name}' />" class="form-control" name="name" required="required">
+							<label>User Name</label> 
+							<input type="text" value="<c:out value='${user.name}' />" class="form-control" name="name" required="required">
 						</fieldset>
 						<fieldset class="form-group">
 							<label>Password</label> <input type="text" value="<c:out value='${user.password}' />" class="form-control" name="password">
@@ -51,7 +52,7 @@
 						<fieldset class="form-group">
 							<label>User Email</label> <input type="text" value="<c:out value='${user.email}' />" class="form-control" name="email">
 						</fieldset>
-						<button type="submit" class="btn btn-success">Save</button>
+						<button type="submit" id="submit_" class="btn btn-success">Save</button>
 					</form>
 				</div>
 			</div>

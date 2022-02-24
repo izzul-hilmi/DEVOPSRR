@@ -8,11 +8,11 @@
 </head>
 <body>
 	<form action="UserServlet" method="post">
-		Name: <input type="text" name="yourName" size="20">
+		Name: <input type="text" name="name" size="20">
 		<br>
-		Password: <input type="password" name="yourPassword" size="20">
+		Password: <input type="password" name="password" size="20">
 		<br>
-		Email: <input type="text" name="yourEmail" size="20">
+		Email: <input type="text" name="email" size="20">
 		<br>
 		<input id="submit_" type="submit" value="Register" />
 	</form>
