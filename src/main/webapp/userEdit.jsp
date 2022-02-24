@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit User</title>
 </head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>User Management Application</title>
@@ -52,7 +52,7 @@
 						<fieldset class="form-group">
 							<label>User Email</label> <input type="text" value="<c:out value='${user.email}' />" class="form-control" name="email">
 						</fieldset>
-						<button type="submit" id="submit_" class="btn btn-success">Save</button>
+						<button type="submit" id="edit" class="btn btn-success">Save</button>
 					</form>
 				</div>
 			</div>
