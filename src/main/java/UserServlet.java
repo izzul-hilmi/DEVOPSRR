@@ -145,8 +145,7 @@ public class UserServlet extends HttpServlet {
 		//get parameter passed in the URL
 		String name = request.getParameter("name");
 		User existingUser = new User("", "", "");
-		
-		// Step 1: Establishing a Connection
+	
 		try (
 				Connection connection = getConnection();
 				// Step 2:Create a statement using connection object
@@ -164,10 +163,12 @@ public class UserServlet extends HttpServlet {
 				String password = rs.getString("password");
 				String email = rs.getString("email");
 				existingUser = new User(name, password, email);
+
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
 		
 		//Step 5: Set existingUser to request and serve up the userEdit form
 		request.setAttribute("user", existingUser);
@@ -183,14 +184,7 @@ public class UserServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		
-		//Step 2: Attempt connection with database and execute update user SQL query
-		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
-			statement.setString(1, name);
-			statement.setString(2, password);
-			statement.setString(3, email);
-			statement.setString(4, oriName);
-			int i = statement.executeUpdate();
-		} 
+		User.updateUser(oriName, name, password, email);
 		//Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
 		response.sendRedirect("http://localhost:8090/DEVOPSRR/UserServlet");
 	}
@@ -200,11 +194,10 @@ public class UserServlet extends HttpServlet {
 	{ 
 		//Step 1: Retrieve value from the request
 		String name = request.getParameter("name"); //Step 2: Attempt connection with database and execute delete user SQL query
-		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) 
-		{
-			statement.setString(1, name);
-			int i = statement.executeUpdate();
-		} 
+		
+		// Call delete function from User class
+		User.deleteUser(name);	
+		
 		//Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
 		response.sendRedirect("http://localhost:8090/DEVOPSRR/UserServlet");
 	}
@@ -250,53 +243,25 @@ public class UserServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 
 		String formName = request.getParameter("yourName");
 		String formPassword = request.getParameter("yourPassword");
 		String formEmail = request.getParameter("yourEmail");
+		
 
 		// Step 3: attempt connection to database using JDBC, you can change the
 		// username and password accordingly using the phpMyAdmin > User Account
 		// dashboard
+		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant", "root", "password");
-
-			// Step 4: implement the sql query using prepared statement
-			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-			PreparedStatement ps = con.prepareStatement("insert into USERINFO values(?,?,?)");
-
-			// Step 5: parse in the data retrieved from the web form request into the
-			// prepared statement accordingly
-			ps.setString(1, formName);
-			ps.setString(2, formPassword);
-			ps.setString(3, formEmail);
-
-			// Step 6: perform the query on the database using the prepared statement
-			int i = ps.executeUpdate();
-			// Step 7: check if the query had been successfully execute, return “You are
-			// successfully registered” via the response,
-			if (i > 0) {
-				
-				PrintWriter writer = response.getWriter();
-				writer.println("Successfully registered!"); 
-				writer.close();
+			User.registerUser(formName, formPassword, formEmail);
 //			response.sendRedirect("http://localhost:8090/DEVOPSRR/UserServlet");
-			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		// Step 8: catch and print out any exception
-		catch (Exception exception) {
-			System.out.println(exception);
-			out.close();
-		}
-
-		/*
-		 * PrintWriter writer = response.getWriter(); writer.println("<h1>Name = " +
-		 * formName + "<br>" + "Password = " + formPassword);
-		 */
-
-//		response.sendRedirect("http://localhost:8080/huanRestaurant/UserServlet/");
+		
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
