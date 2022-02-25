@@ -49,10 +49,10 @@
 <c:out value="${booking.restaurant}" />
 </td>
 <td>
-<c:out value="${booking.time}" />
+<c:out value="${booking.date}" />
 </td>
 <td>
-<c:out value="${booking.date}" />
+<c:out value="${booking.time}" />
 </td>
 <!-- For each user in the database, Edit/Delete buttons which invokes the edit/delete functions -->
 <td>

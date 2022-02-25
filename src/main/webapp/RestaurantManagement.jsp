@@ -25,7 +25,7 @@ crossorigin="anonymous">
 <hr>
 <div class="container text-left">
 <!-- Add new user button redirects to the register.jsp page -->
-<a href="<%=request.getContextPath()%>/register.jsp" class="btn btn-success">Add New Restaurant</a>
+<a href="<%=request.getContextPath()%>/restaurant.jsp" class="btn btn-success">Add New Restaurant</a>
 </div>
 <br>
 <!-- Create a table to list out all current users information -->
