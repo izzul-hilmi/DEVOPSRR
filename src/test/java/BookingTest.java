@@ -11,7 +11,7 @@ public class BookingTest {
   @Test
   public void f() {
 	// define the chrome driver
-		  System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Google\\Chrome\\chromedriver.exe");
+	  	System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\chromedriver.exe");
 
 		   // define the drive instance
 		  WebDriver driver = new ChromeDriver();
@@ -42,13 +42,14 @@ public class BookingTest {
 		  
 		  driver.findElement(By.name("restaurant")).sendKeys("testauto2");
 		  
+		  driver.findElement(By.name("date")).clear();
+		  
+		  driver.findElement(By.name("date")).sendKeys("23/02/2030");
+		  
 		  driver.findElement(By.name("time")).clear();
 		  
 		  driver.findElement(By.name("time")).sendKeys("9:00PM");
 		  
-		  driver.findElement(By.name("date")).clear();
-		  
-		  driver.findElement(By.name("date")).sendKeys("23/02/2030");
 		  
 		  driver.findElement(By.id("save")).click();
 		  
