@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,34 +51,14 @@ public class ReviewServlet extends HttpServlet {
 		
 		
 		//Step 3: attempt connection to database using JDBC, you can change the username and password accordingly using the phpMyAdmin > User Account dashboard
-		try {
-		 Class.forName("com.mysql.jdbc.Driver");
-		 Connection con = DriverManager.getConnection(
-		 "jdbc:mysql://localhost:3306/restaurant", "root", "password");
-		 
-		//Step 4: implement the sql query using prepared statement
-		 //(https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-		  PreparedStatement ps = con.prepareStatement("insert into REVIEWDETAILS values(?,?)");
-		 
-		//Step 5: parse in the data retrieved from the web form request into the prepared statement accordingly
-		  ps.setString(1, n);
-		  ps.setString(2, p);
-		 
-		  
-		  
-		//Step 6: perform the query on the database using the prepared statement
-		  int i = ps.executeUpdate();
-		 //Step 7: check if the query had been successfully execute, return �You are successfully registered� via the response,
-		  if (i > 0){
-		 PrintWriter writer = response.getWriter();
-		 response.sendRedirect("http://localhost:8090/DEVOPSRR/CommentServlet/dashboard");
-		 }
-		 }
-		 //Step 8: catch and print out any exception
-		 catch (Exception exception) {
-		  System.out.println(exception);
-		  out.close();
-		 }
+	try {
+		Reviews.registerComment(n, p);
+		response.sendRedirect("http://localhost:8090/DEVOPSRR/CommentServlet/dashboard");
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		
 		  
 		  
 		doGet(request, response);
