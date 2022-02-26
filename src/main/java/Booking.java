@@ -1,7 +1,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Booking {
 	
@@ -134,5 +136,29 @@ public class Booking {
         return i;
 
     }
+	public static int viewBooking(List<Booking> bookings) throws SQLException {
+		int i = 0;
+		try (
+				Connection connection = getConnection();
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement("select * from BookingDetails");
+			) 
+		{
+			// Step 5.2: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 5.3: Process the ResultSet object.
+			while (rs.next()) {
+				String username = rs.getString("username");
+				String restaurant = rs.getString("restaurant");
+				String date = rs.getString("date");
+				String time = rs.getString("time");
+				bookings.add(new Booking(username, restaurant, date, time));
+				i = bookings.size();
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return i;
+	}
 
 }
