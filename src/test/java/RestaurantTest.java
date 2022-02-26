@@ -28,7 +28,7 @@ public class RestaurantTest {
       driver.findElement(By.id("createRestaurant")).click();
 
       //Edit the test auto booking 
-      driver.findElement(By.xpath("//a[@href='delete?name=testauto']")).click();
+      driver.findElement(By.xpath("//a[@href='delete?name=testsauto']")).click();
 
   }
   @BeforeTest
