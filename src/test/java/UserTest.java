@@ -16,7 +16,7 @@ public class UserTest {
 
 		// define the drive instance
 		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
+//		driver.manage().window().maximize();
 		
 		// nagivate the browser to this url
 		driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
@@ -41,7 +41,7 @@ public class UserTest {
 
 				// define the drive instance
 				WebDriver driver = new ChromeDriver();
-				driver.manage().window().maximize();
+//				driver.manage().window().maximize();
 
 		driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
 		// Edit the test auto booking
@@ -69,7 +69,7 @@ public class UserTest {
 
 				// define the drive instance
 				WebDriver driver = new ChromeDriver();
-				driver.manage().window().maximize();
+//				driver.manage().window().maximize();
 				
 		driver.get("http://localhost:8090/DEVOPSRR/UserServlet");
 

@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class User {
 
@@ -54,6 +55,30 @@ public class User {
 		return connection;
 	}
 	
+	public static int readUsers(List<User> users) throws SQLException {
+		int i = 0;
+		try (
+				Connection connection = getConnection();
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement("select * from UserInfo");
+			) 
+		{
+			// Step 5.2: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 5.3: Process the ResultSet object.
+			while (rs.next()) {
+				String name = rs.getString("name");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				users.add(new User(name, password, email));
+				i = users.size();
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return i;
+	}
+	
 	public static int registerUser(String formName, String formPassword, String formEmail) throws SQLException {
 		int i = 0;
 		try {
@@ -76,7 +101,7 @@ public class User {
 			// successfully registered” via the response,
 			if (i > 0) {
 				
-				System.out.println("Successful !!!!!!!ftyujnvfgtyhnb   "+ i);
+				System.out.println("Successfully registered"+ i);
 				return i;
 			}
 		}
@@ -87,6 +112,31 @@ public class User {
 		System.out.println(i);
 		return i;
 		
+	}
+
+	
+	public static int updateUser(String oriName, String name, String password, String email) throws SQLException {
+		
+		//Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("update UserInfo set name = ?,password= ?, email =? where name = ?;");) {
+			statement.setString(1, name);
+			statement.setString(2, password);
+			statement.setString(3, email);
+			statement.setString(4, oriName);
+			int i = statement.executeUpdate();
+			return i;
+		} 
+				
+	}
+	
+	public static int deleteUser(String name) throws SQLException {
+		
+		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from UserInfo where name = ?;");) 
+		{
+			statement.setString(1, name);
+			int i = statement.executeUpdate();
+			return i;
+		}
 	}
 
 //	public static int showEditForm(String name, User existingUser) throws SQLException {
@@ -119,28 +169,4 @@ public class User {
 //		
 //		return i;
 //	}
-	
-	public static int updateUser(String oriName, String name, String password, String email) throws SQLException {
-		
-		//Step 2: Attempt connection with database and execute update user SQL query
-		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("update UserInfo set name = ?,password= ?, email =? where name = ?;");) {
-			statement.setString(1, name);
-			statement.setString(2, password);
-			statement.setString(3, email);
-			statement.setString(4, oriName);
-			int i = statement.executeUpdate();
-			return i;
-		} 
-				
-	}
-	
-	public static int deleteUser(String name) throws SQLException {
-		
-		try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement("delete from UserInfo where name = ?;");) 
-		{
-			statement.setString(1, name);
-			int i = statement.executeUpdate();
-			return i;
-		}
-	}
 }
