@@ -152,15 +152,7 @@ public class BookingServlet extends HttpServlet {
 	String restaurant = request.getParameter("restaurant");
 	String date = request.getParameter("date");
 	String time = request.getParameter("time");
-	//Step 2: Attempt connection with database and execute update user SQL query
-	try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_BOOKING_SQL);) {
-	statement.setString(1, username);
-	statement.setString(2, restaurant);
-	statement.setString(3, date);
-	statement.setString(4, time);
-	statement.setString(5, oriName);
-	int i = statement.executeUpdate();
-	}
+	Booking.updateBooking(oriName, username, restaurant, date, time);
 	//Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
 	response.sendRedirect("http://localhost:8090/DEVOPSRR/BookingServlet/dashboard");
 	}
@@ -169,12 +161,7 @@ public class BookingServlet extends HttpServlet {
 		    throws SQLException, IOException {
 		    //Step 1: Retrieve value from the request
 		     String username = request.getParameter("username");
-		     //Step 2: Attempt connection with database and execute delete user SQL query
-		     try (Connection connection = getConnection(); PreparedStatement statement =
-		    connection.prepareStatement(DELETE_BOOKING_SQL);) {
-		     statement.setString(1, username );
-		     int i = statement.executeUpdate();
-		     }
+		     Booking.deleteBooking(username);
 		     //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
 		     response.sendRedirect("http://localhost:8090/DEVOPSRR/BookingServlet/dashboard");
 		    }
