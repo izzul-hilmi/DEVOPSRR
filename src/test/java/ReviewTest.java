@@ -41,6 +41,7 @@ public class ReviewTest {
 	  
 	  driver.findElement(By.xpath("//a[@href='delete?name=Testnamereeee']")).click();
 	  
+	  driver.quit();
   }
   @BeforeTest
   public void beforeTest() {
