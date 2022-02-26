@@ -56,6 +56,8 @@ public class BookingTest {
 		  //Delete the test auto booking
 		  driver.findElement(By.xpath("//a[@href='delete?username=testauto2']")).click();
 		  
+		  driver.quit();
+		  
   }
   @BeforeTest
   public void beforeTest() {
