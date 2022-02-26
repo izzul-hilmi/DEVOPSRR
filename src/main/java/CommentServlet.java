@@ -150,15 +150,8 @@ public class CommentServlet extends HttpServlet {
 		 String name = request.getParameter("name");
 		 String review = request.getParameter("review");
 
-		 //Step 2: Attempt connection with database and execute update user SQL query
-		 try (Connection connection = getConnection(); PreparedStatement statement =
-		connection.prepareStatement(UPDATE_REVIEWS_SQL);) {
-		 statement.setString(1, name);
-		 statement.setString(2, review);
+		 Reviews.updateComment(oriName, name, review);
 		
-		 statement.setString(3, oriName);
-		 int i = statement.executeUpdate();
-		 }
 		 //Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
 		 response.sendRedirect("http://localhost:8090/DEVOPSRR/CommentServlet/dashboard");
 		}
@@ -169,11 +162,7 @@ public class CommentServlet extends HttpServlet {
 		//Step 1: Retrieve value from the request
 		 String name = request.getParameter("name");
 		 //Step 2: Attempt connection with database and execute delete user SQL query
-		 try (Connection connection = getConnection(); PreparedStatement statement =
-		connection.prepareStatement(DELETE_REVIEWS_SQL);) {
-		 statement.setString(1, name);
-		 int i = statement.executeUpdate();
-		 }
+		 Reviews.deleteComment(name);
 		 //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
 		 response.sendRedirect("http://localhost:8090/DEVOPSRR/CommentServlet/dashboard");
 		}
