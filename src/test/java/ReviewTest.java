@@ -11,9 +11,10 @@ public class ReviewTest {
 	  
 	// define the chrome driver
 	  System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\chromedriver.exe");
-
+	  
 	   // define the drive instance
 	  WebDriver driver = new ChromeDriver();
+	  driver.manage().window().maximize();
 	  // nagivate the browser to this url
 	  driver.get("http://localhost:8090/DEVOPSRR/CommentServlet/dashboard");
 	  // browser look for link with text value "Why RP?"
