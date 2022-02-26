@@ -94,24 +94,7 @@ public class BookingServlet extends HttpServlet {
 	throws SQLException, IOException, ServletException
 	{
 	List <Booking> booking = new ArrayList <>();
-	 try (Connection connection = getConnection();
-	 // Step 5.1: Create a statement using connection object
-	 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BOOKING);) {
-	 // Step 5.2: Execute the query or update query
-	 ResultSet rs = preparedStatement.executeQuery();
-	 // Step 5.3: Process the ResultSet object.
-	 while (rs.next()) {
-	 String username = rs.getString("username");
-	 String restaurant = rs.getString("restaurant");
-	 String date = rs.getString("date");
-	 String time = rs.getString("time");
-	
-	 booking.add(new Booking(username, restaurant, date, time));
-	 }
-	 } catch (SQLException e) {
-	 System.out.println(e.getMessage());
-	 }
-	// Step 5.4: Set the users list into the listUsers attribute to be pass to the reviewManagement.jsp
+	Booking.viewBooking(booking);
 	request.setAttribute("listBooking", booking);
 	request.getRequestDispatcher("/bookingManagement.jsp").forward(request, response);
 	}
