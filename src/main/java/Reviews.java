@@ -1,7 +1,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Reviews {
 	
@@ -80,6 +82,30 @@ public class Reviews {
 		return i;
 		
 	}
+	
+	public static int viewComment(List<Reviews> comments) throws SQLException {
+        int i = 0;
+        try (
+                Connection connection = getConnection();
+                // Step 5.1: Create a statement using connection object
+                PreparedStatement preparedStatement = connection.prepareStatement("select * from ReviewDetails");
+            ) 
+        {
+            // Step 5.2: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+            // Step 5.3: Process the ResultSet object.
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String review = rs.getString("review");
+             
+                comments.add(new Reviews(name, review));
+                i = comments.size();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return i;
+    }
 	
 public static int deleteComment(String name) throws SQLException {
 		

@@ -93,22 +93,7 @@ public class CommentServlet extends HttpServlet {
 				throws SQLException, IOException, ServletException
 				{
 			List <Reviews> comments = new ArrayList <>();
-			 try (Connection connection = getConnection();
-			 // Step 5.1: Create a statement using connection object
-			 PreparedStatement preparedStatement =
-			connection.prepareStatement(SELECT_ALL_REVIEWS);) {
-			 // Step 5.2: Execute the query or update query
-			 ResultSet rs = preparedStatement.executeQuery();
-			 // Step 5.3: Process the ResultSet object.
-			 while (rs.next()) {
-			 String name = rs.getString("name");
-			 String review = rs.getString("review");
-			
-			 comments.add(new Reviews(name, review));
-			 }
-			 } catch (SQLException e) {
-			 System.out.println(e.getMessage());
-			 }
+			Reviews.viewComment(comments);
 				// Step 5.4: Set the users list into the listUsers attribute to be pass to the userManagement.jsp
 				request.setAttribute("listComment", comments);
 				request.getRequestDispatcher("/ReviewManagement.jsp").forward(request, response);
