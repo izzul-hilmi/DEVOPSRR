@@ -68,7 +68,7 @@ public class Reviews {
 			// successfully registered” via the response,
 			if (i > 0) {
 				
-				System.out.println("Successful !!!!!!!ftyujnvfgtyhnb   "+ i);
+				System.out.println("Success!   "+ i);
 				return i;
 			}
 		}
