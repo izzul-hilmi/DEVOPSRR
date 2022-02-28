@@ -86,23 +86,7 @@ public class RestaurantServlet extends HttpServlet {
 	throws SQLException, IOException, ServletException
 	{
 	List <Restaurant> restaurants = new ArrayList <>();
-	 try (Connection connection = getConnection();
-	 // Step 5.1: Create a statement using connection object
-	 PreparedStatement preparedStatement =
-	connection.prepareStatement(SELECT_ALL_RESTAURANTS);) {
-	 // Step 5.2: Execute the query or update query
-	 ResultSet rs = preparedStatement.executeQuery();
-	 // Step 5.3: Process the ResultSet object.
-	 while (rs.next()) {
-	 String name = rs.getString("name");
-	 String hotline = rs.getString("hotline");
-	 String address = rs.getString("address");
-	 restaurants.add(new Restaurant(name, hotline, address));
-	 }
-	 } catch (SQLException e) {
-	 System.out.println(e.getMessage());
-	 }
-	// Step 5.4: Set the users list into the listUsers attribute to be pass to the userManagement.jsp
+	Restaurant.viewRestaurant(restaurants);
 	request.setAttribute("listRestaurants", restaurants);
 	request.getRequestDispatcher("/RestaurantManagement.jsp").forward(request, response);
 	}
@@ -153,14 +137,7 @@ public class RestaurantServlet extends HttpServlet {
 	 String address = request.getParameter("address");
 
 	 //Step 2: Attempt connection with database and execute update user SQL query
-	 try (Connection connection = getConnection(); PreparedStatement statement =
-	connection.prepareStatement(UPDATE_RESTAURANTS_SQL);) {
-	 statement.setString(1, name);
-	 statement.setString(2, hotline);
-	 statement.setString(3, address);
-	 statement.setString(4, oriName);
-	 int i = statement.executeUpdate();
-	 }
+	 Restaurant.updateRestaurant(oriName, name, hotline, address);
 	 //Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
 	 response.sendRedirect("http://localhost:8090/DEVOPSRR/RestaurantServlet/dashboard");
 	}
@@ -170,12 +147,7 @@ public class RestaurantServlet extends HttpServlet {
 	//Step 1: Retrieve value from the request
 	 String name = request.getParameter("name");
 	 //Step 2: Attempt connection with database and execute delete user SQL query
-	 try (Connection connection = getConnection(); PreparedStatement statement =
-	connection.prepareStatement(DELETE_RESTAURANTS_SQL);) {
-	 statement.setString(1, name);
-	 int i = statement.executeUpdate();
-	 }
-	 //Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
+	 Restaurant.deleteRestaurant(name);
 	 response.sendRedirect("http://localhost:8090/DEVOPSRR/RestaurantServlet/dashboard");
 	}
 
